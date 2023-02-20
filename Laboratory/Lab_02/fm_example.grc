@@ -1,7 +1,6 @@
 options:
   parameters:
     author: popuser
-    catch_exceptions: 'True'
     category: '[GRC Hier Blocks]'
     cmake_opt: ''
     comment: ''
@@ -11,7 +10,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: fm_modulator
+    id: fm_example
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -23,6 +22,7 @@ options:
     sizing_mode: fixed
     thread_safe_setters: ''
     title: Not titled yet
+    window_size: ''
   states:
     bus_sink: false
     bus_source: false
@@ -39,7 +39,7 @@ blocks:
     gui_hint: ''
     label: ''
     min_len: '200'
-    orient: QtCore.Qt.Horizontal
+    orient: Qt.Horizontal
     rangeType: float
     start: '0'
     step: '0.1'
@@ -57,12 +57,12 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '360000'
+    value: 48000*10
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 12]
+    coordinate: [184, 17]
     rotation: 0
     state: enabled
 - name: tap_up
@@ -73,13 +73,13 @@ blocks:
     cutoff_freq: '30000'
     gain: '1.0'
     samp_rate: samp_rate
-    width: '100'
+    width: '500'
     win: firdes.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [171, 445]
+    coordinate: [508, 31]
     rotation: 0
     state: true
 - name: analog_fm_demod_cf_0
@@ -88,20 +88,20 @@ blocks:
     affinity: ''
     alias: ''
     audio_decim: '5'
-    audio_pass: '10000'
-    audio_stop: '11000'
+    audio_pass: '15000'
+    audio_stop: '16000'
     chan_rate: '120000'
     comment: ''
-    deviation: '10000'
+    deviation: '75000'
     gain: '1.0'
     maxoutbuf: '0'
     minoutbuf: '0'
-    tau: '0'
+    tau: 75e-6
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1017, 665]
+    coordinate: [925, 559]
     rotation: 0
     state: true
 - name: audio_sink_0
@@ -120,7 +120,7 @@ blocks:
     bus_structure: null
     coordinate: [1269, 730]
     rotation: 0
-    state: true
+    state: disabled
 - name: band_pass_filter_0
   id: band_pass_filter
   parameters:
@@ -128,7 +128,7 @@ blocks:
     alias: ''
     beta: '6.76'
     comment: ''
-    decim: '3'
+    decim: '1'
     gain: '1'
     high_cutoff_freq: '150000'
     interp: '1'
@@ -137,13 +137,13 @@ blocks:
     minoutbuf: '0'
     samp_rate: samp_rate
     type: fir_filter_fcc
-    width: '2000'
+    width: '100'
     win: firdes.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [394, 668]
+    coordinate: [288, 542]
     rotation: 0
     state: true
 - name: blocks_add_const_vxx_0
@@ -161,9 +161,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [739, 321]
+    coordinate: [655, 400]
     rotation: 0
-    state: enabled
+    state: true
 - name: blocks_integrate_xx_0
   id: blocks_integrate_xx
   parameters:
@@ -179,9 +179,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [907, 345]
+    coordinate: [827, 398]
     rotation: 0
-    state: enabled
+    state: true
 - name: blocks_multiply_const_vxx_0
   id: blocks_multiply_const_vxx
   parameters:
@@ -219,44 +219,6 @@ blocks:
     coordinate: [684, 226]
     rotation: 0
     state: true
-- name: blocks_throttle_0_0
-  id: blocks_throttle
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    ignoretag: 'True'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    samples_per_second: samp_rate
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [544, 321]
-    rotation: 0
-    state: true
-- name: blocks_throttle_0_0_0
-  id: blocks_throttle
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    ignoretag: 'True'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    samples_per_second: samp_rate
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [824, 640]
-    rotation: 0
-    state: true
 - name: blocks_vco_f_0
   id: blocks_vco_f
   parameters:
@@ -267,22 +229,38 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
-    sensitivity: '753982.23686155'
+    sensitivity: 753.952e3
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1063, 429]
+    coordinate: [1105, 399]
     rotation: 0
-    state: enabled
+    state: true
+- name: blocks_wavfile_sink_0
+  id: blocks_wavfile_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    bits_per_sample: '8'
+    comment: ''
+    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_02/out_file_new.wav
+    nchan: '1'
+    samp_rate: '48000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1415, 574]
+    rotation: 0
+    state: true
 - name: blocks_wavfile_source_0
   id: blocks_wavfile_source
   parameters:
     affinity: ''
     alias: ''
     comment: ''
-    file: /media/manuel/ExtraDrive1/URL/Transmisores_Receptores/2021/GNU_Radio/GNURadio-Frequency-Modulation-fmx/Perfect
-      Strangers.wav
+    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_02/Perfect Strangers.wav
     maxoutbuf: '0'
     minoutbuf: '0'
     nchan: '1'
@@ -305,6 +283,86 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [1202, 88]
+    rotation: 0
+    state: true
+- name: qtgui_freq_sink_x_0
+  id: qtgui_freq_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    ctrlpanel: 'False'
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label: Relative Gain
+    label1: ''
+    label10: ''''''
+    label2: ''''''
+    label3: ''''''
+    label4: ''''''
+    label5: ''''''
+    label6: ''''''
+    label7: ''''''
+    label8: ''''''
+    label9: ''''''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '2'
+    showports: 'False'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_tag: '""'
+    type: float
+    units: dB
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    wintype: firdes.WIN_BLACKMAN_hARRIS
+    ymax: '10'
+    ymin: '-140'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1095, 144]
     rotation: 0
     state: true
 - name: qtgui_sink_x_0
@@ -365,44 +423,15 @@ blocks:
     coordinate: [600, 428]
     rotation: 0
     state: disabled
-- name: qtgui_sink_x_0_1
-  id: qtgui_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    bw: samp_rate
-    comment: ''
-    fc: '0'
-    fftsize: '1024'
-    gui_hint: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    name: '""'
-    plotconst: 'True'
-    plotfreq: 'True'
-    plottime: 'True'
-    plotwaterfall: 'True'
-    rate: '10'
-    showports: 'False'
-    showrf: 'True'
-    type: float
-    wintype: firdes.WIN_BLACKMAN_hARRIS
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1299, 497]
-    rotation: 0
-    state: enabled
 - name: rational_resampler_xxx_0
   id: rational_resampler_xxx
   parameters:
     affinity: ''
     alias: ''
     comment: ''
-    decim: '5'
+    decim: '1'
     fbw: '0'
-    interp: '15'
+    interp: '10'
     maxoutbuf: '0'
     minoutbuf: '0'
     taps: tap_up
@@ -411,7 +440,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [319, 329]
+    coordinate: [320, 331]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_0_0
@@ -420,18 +449,18 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    decim: '1'
+    decim: '2'
     fbw: '0'
-    interp: '5'
+    interp: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
-    taps: ''
-    type: ccc
+    taps: tap_up
+    type: ccf
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [621, 700]
+    coordinate: [635, 555]
     rotation: 0
     state: enabled
 - name: virtual_sink_0
@@ -447,19 +476,19 @@ blocks:
     coordinate: [920, 226]
     rotation: 0
     state: true
-- name: virtual_sink_0_0
+- name: virtual_sink_1
   id: virtual_sink
   parameters:
     alias: ''
     comment: ''
-    stream_id: stream
+    stream_id: vco_out
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1328, 407]
+    coordinate: [1420, 414]
     rotation: 0
-    state: enabled
+    state: true
 - name: virtual_source_0
   id: virtual_source
   parameters:
@@ -478,31 +507,30 @@ blocks:
   parameters:
     alias: ''
     comment: ''
-    stream_id: stream
+    stream_id: vco_out
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [157, 723]
+    coordinate: [53, 592]
     rotation: 0
-    state: enabled
+    state: true
 
 connections:
-- [analog_fm_demod_cf_0, '0', audio_sink_0, '0']
-- [analog_fm_demod_cf_0, '0', qtgui_sink_x_0_1, '0']
+- [analog_fm_demod_cf_0, '0', blocks_wavfile_sink_0, '0']
+- [analog_fm_demod_cf_0, '0', qtgui_freq_sink_x_0, '1']
 - [band_pass_filter_0, '0', rational_resampler_xxx_0_0, '0']
 - [blocks_add_const_vxx_0, '0', blocks_integrate_xx_0, '0']
 - [blocks_integrate_xx_0, '0', blocks_vco_f_0, '0']
 - [blocks_multiply_const_vxx_0, '0', blocks_throttle_0, '0']
+- [blocks_throttle_0, '0', qtgui_freq_sink_x_0, '0']
 - [blocks_throttle_0, '0', qtgui_sink_x_0, '0']
 - [blocks_throttle_0, '0', virtual_sink_0, '0']
-- [blocks_throttle_0_0, '0', blocks_add_const_vxx_0, '0']
-- [blocks_throttle_0_0_0, '0', analog_fm_demod_cf_0, '0']
-- [blocks_vco_f_0, '0', virtual_sink_0_0, '0']
+- [blocks_vco_f_0, '0', virtual_sink_1, '0']
 - [blocks_wavfile_source_0, '0', blocks_multiply_const_vxx_0, '0']
-- [rational_resampler_xxx_0, '0', blocks_throttle_0_0, '0']
+- [rational_resampler_xxx_0, '0', blocks_add_const_vxx_0, '0']
 - [rational_resampler_xxx_0, '0', qtgui_sink_x_0_0, '0']
-- [rational_resampler_xxx_0_0, '0', blocks_throttle_0_0_0, '0']
+- [rational_resampler_xxx_0_0, '0', analog_fm_demod_cf_0, '0']
 - [virtual_source_0, '0', rational_resampler_xxx_0, '0']
 - [virtual_source_1, '0', band_pass_filter_0, '0']
 

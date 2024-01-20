@@ -22,5 +22,5 @@ I will be uploading a new version of the Virtual Machine that fixes some bugs an
 ### Clone this Repository
 
 ```bash
-git clone -b 2023 https://github.com/mriosrivas/SDR-course-material.git
+git clone -b 2024 https://github.com/mriosrivas/SDR-course-material.git
 ```

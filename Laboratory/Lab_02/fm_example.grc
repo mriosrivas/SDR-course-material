@@ -65,12 +65,31 @@ blocks:
     coordinate: [184, 17]
     rotation: 0
     state: enabled
+- name: tap_band
+  id: variable_band_pass_filter_taps
+  parameters:
+    beta: '6.76'
+    comment: ''
+    gain: '1.0'
+    high_cutoff_freq: 130e3
+    low_cutoff_freq: 110e3
+    samp_rate: samp_rate
+    type: band_pass
+    width: 1e3
+    win: firdes.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [727, 26]
+    rotation: 0
+    state: true
 - name: tap_up
   id: variable_low_pass_filter_taps
   parameters:
     beta: '6.76'
     comment: ''
-    cutoff_freq: '30000'
+    cutoff_freq: '10000'
     gain: '1.0'
     samp_rate: samp_rate
     width: '500'
@@ -88,12 +107,12 @@ blocks:
     affinity: ''
     alias: ''
     audio_decim: '5'
-    audio_pass: '15000'
-    audio_stop: '16000'
+    audio_pass: '20000'
+    audio_stop: '21000'
     chan_rate: '120000'
     comment: ''
     deviation: '75000'
-    gain: '1.0'
+    gain: '0.5'
     maxoutbuf: '0'
     minoutbuf: '0'
     tau: 75e-6
@@ -130,14 +149,14 @@ blocks:
     comment: ''
     decim: '1'
     gain: '1'
-    high_cutoff_freq: '150000'
+    high_cutoff_freq: '130000'
     interp: '1'
-    low_cutoff_freq: '90000'
+    low_cutoff_freq: '110000'
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
     type: fir_filter_fcc
-    width: '100'
+    width: '1000'
     win: firdes.WIN_HAMMING
   states:
     bus_sink: false
@@ -179,7 +198,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [827, 398]
+    coordinate: [838, 400]
     rotation: 0
     state: true
 - name: blocks_multiply_const_vxx_0
@@ -229,7 +248,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
-    sensitivity: 753.952e3
+    sensitivity: 753.982e3
   states:
     bus_sink: false
     bus_source: false
@@ -242,9 +261,9 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    bits_per_sample: '8'
+    bits_per_sample: '16'
     comment: ''
-    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_02/out_file_new.wav
+    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_02/results/test.wav
     nchan: '1'
     samp_rate: '48000'
   states:
@@ -253,14 +272,15 @@ blocks:
     bus_structure: null
     coordinate: [1415, 574]
     rotation: 0
-    state: true
+    state: enabled
 - name: blocks_wavfile_source_0
   id: blocks_wavfile_source
   parameters:
     affinity: ''
     alias: ''
     comment: ''
-    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_02/Perfect Strangers.wav
+    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_02/data/Perfect
+      Strangers.wav
     maxoutbuf: '0'
     minoutbuf: '0'
     nchan: '1'
@@ -269,7 +289,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [99, 218]
+    coordinate: [99, 217]
     rotation: 0
     state: true
 - name: note_0
@@ -362,7 +382,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1095, 144]
+    coordinate: [1065, 137]
     rotation: 0
     state: true
 - name: qtgui_sink_x_0
@@ -391,7 +411,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1128, 270]
+    coordinate: [1249, 274]
     rotation: 0
     state: disabled
 - name: qtgui_sink_x_0_0
@@ -454,7 +474,7 @@ blocks:
     interp: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
-    taps: tap_up
+    taps: tap_band
     type: ccf
   states:
     bus_sink: false

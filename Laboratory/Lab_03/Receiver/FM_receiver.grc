@@ -36,7 +36,7 @@ blocks:
   id: variable_qtgui_range
   parameters:
     comment: ''
-    gui_hint: 2,0,1,1
+    gui_hint: 2,0,1,2
     label: Center Frequency
     min_len: '200'
     orient: Qt.Horizontal
@@ -44,7 +44,7 @@ blocks:
     start: 80.1e6
     step: '200000'
     stop: 108.1e6
-    value: 106.5e6
+    value: 97.7e6
     widget: counter_slider
   states:
     bus_sink: false
@@ -57,7 +57,7 @@ blocks:
   id: variable_qtgui_range
   parameters:
     comment: ''
-    gui_hint: 3,0,1,1
+    gui_hint: 3,0,1,2
     label: Rx Gain
     min_len: '200'
     orient: Qt.Horizontal
@@ -102,7 +102,7 @@ blocks:
   id: variable_qtgui_range
   parameters:
     comment: ''
-    gui_hint: 4,0,1,1
+    gui_hint: 4,0,1,2
     label: Volume
     min_len: '200'
     orient: Qt.Horizontal
@@ -160,7 +160,7 @@ blocks:
     alias: ''
     append: 'False'
     comment: ''
-    file: /media/sf_URL/Transmisores_Receptores/2021/audio_clase.raw
+    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received.raw
     type: complex
     unbuffered: 'False'
     vlen: '1'
@@ -178,7 +178,7 @@ blocks:
     alias: ''
     append: 'False'
     comment: ''
-    file: /media/sf_URL/Transmisores_Receptores/2021/audio_clase_lowpass.raw
+    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received_lowpass.wav
     type: complex
     unbuffered: 'False'
     vlen: '1'
@@ -214,7 +214,7 @@ blocks:
     alias: ''
     bits_per_sample: '8'
     comment: ''
-    file: /media/sf_URL/Transmisores_Receptores/2021/audio
+    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received.wav
     nchan: '1'
     samp_rate: '24000'
   states:
@@ -296,6 +296,98 @@ blocks:
     coordinate: [760, 12]
     rotation: 0
     state: enabled
+- name: qtgui_const_sink_x_0
+  id: qtgui_const_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: '"blue"'
+    color10: '"red"'
+    color2: '"red"'
+    color3: '"red"'
+    color4: '"red"'
+    color5: '"red"'
+    color6: '"red"'
+    color7: '"red"'
+    color8: '"red"'
+    color9: '"red"'
+    comment: ''
+    grid: 'False'
+    gui_hint: 0,2,2,2
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    marker1: '0'
+    marker10: '0'
+    marker2: '0'
+    marker3: '0'
+    marker4: '0'
+    marker5: '0'
+    marker6: '0'
+    marker7: '0'
+    marker8: '0'
+    marker9: '0'
+    name: '""'
+    nconnections: '1'
+    size: '200000'
+    style1: '0'
+    style10: '0'
+    style2: '0'
+    style3: '0'
+    style4: '0'
+    style5: '0'
+    style6: '0'
+    style7: '0'
+    style8: '0'
+    style9: '0'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    xmax: '0.01'
+    xmin: '-0.01'
+    ymax: '0.01'
+    ymin: '-0.01'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 414]
+    rotation: 0
+    state: enabled
 - name: qtgui_freq_sink_x_0
   id: qtgui_freq_sink_x
   parameters:
@@ -331,7 +423,7 @@ blocks:
     fftsize: '2048'
     freqhalf: 'True'
     grid: 'True'
-    gui_hint: 0,0,2,1
+    gui_hint: 0,0,2,2
     label: Relative Gain
     label1: Tx
     label10: ''
@@ -376,6 +468,67 @@ blocks:
     coordinate: [496, 156]
     rotation: 0
     state: enabled
+- name: qtgui_waterfall_sink_x_0
+  id: qtgui_waterfall_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '0'
+    color10: '0'
+    color2: '0'
+    color3: '0'
+    color4: '0'
+    color5: '0'
+    color6: '0'
+    color7: '0'
+    color8: '0'
+    color9: '0'
+    comment: ''
+    fc: center_freq
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: 2,2,3,2
+    int_max: '10'
+    int_min: '-140'
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '1'
+    showports: 'False'
+    type: complex
+    update_time: '0.10'
+    wintype: firdes.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [971, 129]
+    rotation: 0
+    state: true
 - name: rational_resampler_xxx_0
   id: rational_resampler_xxx
   parameters:
@@ -404,7 +557,9 @@ connections:
 - [limesdr_source_0, '0', low_pass_filter_0, '0']
 - [low_pass_filter_0, '0', analog_wfm_rcv_0, '0']
 - [low_pass_filter_0, '0', blocks_file_sink_0_0, '0']
+- [low_pass_filter_0, '0', qtgui_const_sink_x_0, '0']
 - [low_pass_filter_0, '0', qtgui_freq_sink_x_0, '0']
+- [low_pass_filter_0, '0', qtgui_waterfall_sink_x_0, '0']
 - [rational_resampler_xxx_0, '0', audio_sink_0, '0']
 - [rational_resampler_xxx_0, '0', blocks_wavfile_sink_0, '0']
 

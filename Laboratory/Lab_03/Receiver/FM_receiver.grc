@@ -178,7 +178,7 @@ blocks:
     alias: ''
     append: 'False'
     comment: ''
-    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received_lowpass.wav
+    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received_lowpass.raw
     type: complex
     unbuffered: 'False'
     vlen: '1'

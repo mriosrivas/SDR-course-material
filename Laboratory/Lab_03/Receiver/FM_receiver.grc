@@ -214,7 +214,7 @@ blocks:
     alias: ''
     bits_per_sample: '8'
     comment: ''
-    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received.wav
+    file: /home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/audio.wav
     nchan: '1'
     samp_rate: '24000'
   states:

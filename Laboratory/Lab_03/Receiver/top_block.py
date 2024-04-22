@@ -264,9 +264,9 @@ class top_block(gr.top_block, Qt.QWidget):
 
 
         self.limesdr_source_0.calibrate(signal_bandwidth, 0)
-        self.blocks_wavfile_sink_0 = blocks.wavfile_sink('/home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received.wav', 1, 24000, 8)
+        self.blocks_wavfile_sink_0 = blocks.wavfile_sink('/home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/audio.wav', 1, 24000, 8)
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_ff(volume*2)
-        self.blocks_file_sink_0_0 = blocks.file_sink(gr.sizeof_gr_complex*1, '/home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received_lowpass.wav', False)
+        self.blocks_file_sink_0_0 = blocks.file_sink(gr.sizeof_gr_complex*1, '/home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received_lowpass.raw', False)
         self.blocks_file_sink_0_0.set_unbuffered(False)
         self.blocks_file_sink_0 = blocks.file_sink(gr.sizeof_gr_complex*1, '/home/popuser/Desktop/SDR-course-material/Laboratory/Lab_03/Receiver/received.raw', False)
         self.blocks_file_sink_0.set_unbuffered(False)
